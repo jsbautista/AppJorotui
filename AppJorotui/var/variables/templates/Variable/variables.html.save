@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="content">
+    <div class="">
+        <div class="page-header-title">
+            <h4 class="page-title">Productos</h4>
+
+            <div class = "container">
+<div class = "row">
+<div class= "col-md-12 search">
+<form method= "get">
+<div id = "custom-search-input">
+<div class= "input-group col-md-12">
+<input type = "text" class="form-control" placeholder="Buscar..." name ="buscar">
+<span class="input-group-list">
+<i class="icon icon-search"></i>
+<button type="submit" class="boton btn-success">Buscar</button>
+</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+            <div style="text-align:center;">
+                <button type="button" class="btn btn-success waves-effect waves-light"
+                        onClick=" window.location.href='/variablecreate' " style="text-align:center;">+
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="page-content-wrapper">
+        <div class="container">
+            <!-- Content page -->
+
+         <div class="row">
+
+             {% for variable in variable_list %}
+
+             <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="card h-100">
+                <a> <img class="card-img-top" src= "/static/media/zapato.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">{{ variable.name }} </a>
+                </h4>
+                <h5>{{ variable.costo }} </h5>
+                  <h6>{{ variable.estadoInventario }}  </h6>
+              </div>
+              <div class="card-footer">
+
+                <small class="text-muted">La cantidad disponible es: {{ variable.cantidad }}</small>
+		<input type="button" value="+">
+		<input type="button" value="-" {{ variable.cantidad}}>
+              </div>
+            </div>
+          </div>
+                {% endfor %}
+                          </div>
+
+
+
+
+                        <button type="button" class="btn btn-primary waves-effect waves-light"
+                                onClick=" window.location.href='/' ">
+                            Back
+                        </button>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
